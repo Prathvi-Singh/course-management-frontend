@@ -5,7 +5,8 @@ import  {DataContext} from '../../context/DataProvider.js'
 
 
 const style1={
-    width:"80%",
+    width:"70%",
+    
 }
 
 const Login=(props)=>{
@@ -13,6 +14,7 @@ const Login=(props)=>{
     const [user,setUser]=useState({
         email:"",
         password:"",
+        
     });
    
  
@@ -51,7 +53,7 @@ const Login=(props)=>{
       
         <>
         <div className="container mt-5 text-center" style={style1}>
-        <h1>👀App</h1>
+        <h1><img src={"http://iiitk.eabyas.in/pluginfile.php/1/core_admin/logo/0x200/1671446873/ltr%20head.JPG"} class="img-fluid" title="INDIAN INSTITUTE OF INFORMATION TECHNOLOGY DESIGN AND MANUFACTURING KURNOOL" alt="INDIAN INSTITUTE OF INFORMATION TECHNOLOGY DESIGN AND MANUFACTURING KURNOOL"/></h1>
         <div >
             <div className="form-group">
 
@@ -71,9 +73,9 @@ const Login=(props)=>{
                  />
             </div>
 
-            <button type="submit" className="btn btn-outline-success btn-lg"  onClick={loginUser}>Submit</button>
+            <button type="submit" className="btn btn-outline-success btn-lg mt-5"  onClick={loginUser}>login </button>
             <br></br>
-            <button type="submit" className="btn btn-outline-primary btn-lg mt-4">Create Account</button>
+            {/* <button type="submit" className="btn btn-outline-primary btn-lg mt-4">Create Account</button> */}
 
         </div>
     </div>
