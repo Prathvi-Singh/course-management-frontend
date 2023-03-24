@@ -2,6 +2,7 @@ import {React,useState,useContext} from 'react';
 import {useNavigate} from "react-router-dom"
 import API from '../../services/api'
 import  {DataContext} from '../../context/DataProvider.js'
+import loginimg from '../../images/login.JPG'
 
 
 const style1={
@@ -53,7 +54,7 @@ const Login=(props)=>{
       
         <>
         <div className="container mt-5 text-center" style={style1}>
-        <h1><img src={"http://iiitk.eabyas.in/pluginfile.php/1/core_admin/logo/0x200/1671446873/ltr%20head.JPG"} class="img-fluid" title="INDIAN INSTITUTE OF INFORMATION TECHNOLOGY DESIGN AND MANUFACTURING KURNOOL" alt="INDIAN INSTITUTE OF INFORMATION TECHNOLOGY DESIGN AND MANUFACTURING KURNOOL"/></h1>
+        <h1><img src={loginimg} class="img-fluid" title="INDIAN INSTITUTE OF INFORMATION TECHNOLOGY DESIGN AND MANUFACTURING KURNOOL" alt="INDIAN INSTITUTE OF INFORMATION TECHNOLOGY DESIGN AND MANUFACTURING KURNOOL"/></h1>
         <div >
             <div className="form-group">
 
