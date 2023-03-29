@@ -10,7 +10,7 @@ const Banner=()=>{
     return (
         
         <>
-        <div classNameName="container-fluid" style={style1}>
+        <div className="container" style={style1}>
         <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
   <div className="carousel-inner">
     <div className="carousel-item active">

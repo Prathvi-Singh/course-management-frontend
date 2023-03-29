@@ -10,8 +10,8 @@ console.log("image",props.image);
 
 
 
-<div className="card mx-3 my-2" style={{width:"22rem"}} >
-  <img className="card-img-top" src={img1} alt={props.image} style={{height:"250px"}}/>
+<div className="card mx-3 my-2" style={{width:"19rem"}} >
+  <img className="card-img-top" src={img1} alt={props.image} style={{height:"230px"}}/>
   <div className="card-body">
     <h5 className="card-title">{props.course}</h5>
     <h2 className="card-text">{props.name}</h2>

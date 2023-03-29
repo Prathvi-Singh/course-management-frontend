@@ -35,7 +35,7 @@ const Add=()=>{
 return (
  <div>
 
-            <button type="button" className="btn btn-info btn-lg container" data-toggle="modal" data-target="#myModal" style={style1}>Adduser</button>
+            <button type="button" className="btn btn-outline-info btn-lg container" data-toggle="modal" data-target="#myModal" style={style1}>Adduser</button>
 
 
             <div id="myModal" className="modal fade" role="dialog">

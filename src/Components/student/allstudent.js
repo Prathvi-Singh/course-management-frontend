@@ -8,7 +8,7 @@ const AllStudent=()=>{
 
         <>
         <div className="dropdown">
-  <button className="btn btn-secondary dropdown-toggle btn btn-info btn-lg container" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button className="btn btn-secondary dropdown-toggle btn btn-outline-info btn-lg container" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    All Student
   </button>
   <button className="dropdown-menu btn btn-info btn-lg container" aria-labelledby="dropdownMenuButton" style={{width:"100%"}}>

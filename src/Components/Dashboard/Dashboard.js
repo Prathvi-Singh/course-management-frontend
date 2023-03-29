@@ -11,6 +11,8 @@ import StudentGrade from '../student/studentgrade';
 import AllStudent from '../student/allstudent';
 import Banner from '../Admin/getALLCourses/banner.js'
 import '../css/detail.css'
+import '../css/dashboard.css'
+import learn from '../../images/learn2.jpg'
 
 const img1 = "https://images.pexels.com/photos/2792043/pexels-photo-2792043.jpeg?cs=srgb&dl=pexels-steshka-willems-2792043.jpg&fm=jpg"
 const style1 = {
@@ -30,11 +32,7 @@ const AdminDashboard = () => {
 
   const [searchParams] = useSearchParams();
   const branch = searchParams.get("branch")
-  //  console.log("....",branch);
 
-  //  const location=useLocation();
-  //  const a=location.search?.split("=")[1] || "ALL";
-  //  console.log(a);
 
   const Navigate = useNavigate();
   const [data, setData] = useState({
@@ -56,30 +54,28 @@ const AdminDashboard = () => {
     console.log(data)
     const response = await API.addCourse(data);
     if (response.isSuccess) {
-      // count=;
+
       console.log(response.data)
-      // setRender(torender + 1);
-      // console.log(torender);
+
       setCourse(response.data);
       setData({})
       console.log('successfully added');
-      // Navigate('/admindashboard')
+
     }
   }
 
-  //  const {branch} =useParams();
-  // console.log("...",branch);
+
 
   useEffect(() => {
 
     const getData = async () => {
       console.log("GET ALL COURSES")
       const response = await API.getCourses({ branch: branch || "" });
-      // console.log(response.data);
+
       if (response.isSuccess) {
-        console.log("Yes", "we get course from database-->",response.data);
+        console.log("Yes", "we get course from database-->", response.data);
         setCourse(response.data);
-        
+
       }
     }
 
@@ -89,25 +85,94 @@ const AdminDashboard = () => {
 
   return (
     <>
-    <Banner></Banner>
-   
+      {/* <Banner></Banner> */}
+      <nav class="container navbar navbar-expand-lg navbar-light bg-light mt-5">
+        <img src={learn} style={{ width: "200px", height: "50px" }}></img>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li>
+              <Link to="/profile">
+                <button type="button" className="btn btn-outline-info btn-lg container" style={style1}>Profile</button>
+              </Link>
+            </li>
+            <li class="nav-item active">
+              <AllStudent></AllStudent>
+            </li>
+            <li class="nav-item">
+              <Link to={`/allgrades/${account.email}`}>
 
-      <div classNameName="container-fluid">
-        <div className="row border border-primary">
+                {
+                  account.designation === "student" ?
+                    <button type="button" className="btn btn-outline-info btn-lg container" style={style1}>Grades</button>
 
-          <div className=" col-12 col-sm-12 col-lg-2 ">
+                    :
+                    <h1></h1>
+                }
 
-            
 
 
-            <Link to="/profile">
-              <button type="button" className="btn btn-info btn-lg container" style={style1}>Profile</button>
-            </Link>
-            {
+              </Link>
+
+            </li>
+            <li class="nav-item">
+              <div className="dropdown">
+                <button className="btn btn-secondary dropdown-toggle btn btn-outline-info btn-lg container" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Select Course
+                </button>
+                <button className="dropdown-menu  container" aria-labelledby="dropdownMenuButton" style={{ width: "100%" }}>
+                  <div class="column">
+                    {
+
+                      branches.map(b => {
+                        return (
+                          //  <Link to={`/dashboard/?branch=${b.branch}`} style={{ textDecoration: "none", color: 'inherit' }}>
+                          <div>
+                            {
+                              account.designation != "student" ?
+
+                                <Link to={`/dashboard/?branch=${b.branch}`} type="button" className="btn btn-outline-success container" style={style1}>  {b.branch} </Link>
+
+                                : <h1></h1>
+
+                            }
+                            {/* </Link> */}
+                          </div>
+                        )
+                      })
+                    }
+
+                  </div>
+
+                </button>
+
+              </div>
+
+            </li>
+
+            <li>
+              {
+
+                account.designation == "admin" ? <div style={style1}>
+                  <Add style={style1}></Add>
+
+
+
+                </div>
+
+                  :
+                  <h1></h1>
+              }
+
+
+            </li>
+            <li> {
 
               account.designation == "admin" ? <div style={style1}>
-                <Add style={style1}></Add>
-                <button type="button" className="btn btn-info btn-lg container " data-toggle="modal" data-target="#myModal1" style={style1}>AddCourse</button>
+
+                <button type="button" className="btn btn-outline-info btn-lg container " data-toggle="modal" data-target="#myModal1" style={style1}>AddCourse</button>
 
 
                 <div id="myModal1" className="modal fade " role="dialog">
@@ -116,7 +181,9 @@ const AdminDashboard = () => {
                     <div className="modal-content">
                       <div className="modal-header">
                         {/* <button type="button" ></button> */}
+
                         <h4 className="modal-title text-center mb">Add Course</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div>
                       <div className="container-fluid" >
 
@@ -166,127 +233,57 @@ const AdminDashboard = () => {
                   </div>
 
                 </div>
-           
+
 
               </div>
 
                 :
                 <h1></h1>
-              // account.designation == "faculty" ?
-
-              // <div>
-              //   <li type="button" className="btn btn-outline-success container">Grade</li>
-              // </div>
-
-              // :
-
-              // account.designation == "student" ?
-
-              // <div>
-              //    <li type="button" className="btn btn-outline-success container">Grade</li>
-              // </div>
-
-              // :
-              // <h1></h1>
+            }</li>
+            <li class="nav-item dropdown">
+              <Link to="/allfaculty">
+                <button type="button" className="btn btn-outline-info btn-lg container" style={style1}> ALL Faculty</button>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
 
-            }
-
-<Link to="/allfaculty">
-                <button type="button" className="btn btn-info btn-lg container" style={style1}> ALL Faculty</button>
-                </Link>
-                <AllStudent></AllStudent>
-
-            <Link to={`/allgrades/${account.email}`}>
-
-              {
-                account.designation === "student" ?
-                  <button type="button" className="btn btn-info btn-lg container" style={style1}>Grades</button>
-                   
-                  :
-                  <h1></h1>
-              }
+      <div className="container mb-5">
+        <div className="container row  border border-dark text-center d-flex justify-content-start ">
 
 
+          {
+            allCourse.map(course => {
 
-            </Link>
+              return (
+                <Link to={`/details/${course._id}`} style={{ textDecoration: "none", color: 'inherit' }}>
+                  {
+                    account.designation === "admin" ? <Course name={course.facultyname} email={course.facultyemail} course={course.coursename} branch={course.branch} image={course.image}>
+                    </Course>
 
-            
-
-          
-
-
-
-
-
-
-
-            {/* {
-              account.designation==="student" ? <StudentGrade></StudentGrade> : <h1></h1>
-
-            } */}
-            <ol className="text-left  container">
-
-              {
-
-                branches.map(b => {
-
-                  return (
-
-                    <Link to={`/dashboard/?branch=${b.branch}`} style={{ textDecoration: "none", color: 'inherit' }}>
-
-                      {
-                        account.designation != "student" ?
-
-                          <li type="button" className="btn btn-outline-success container" style={style1}>  {b.branch}</li>
-
+                      : account.designation === "faculty" && account.email === course.facultyemail ? <Course name={course.facultyname} email={course.facultyemail} course={course.coursename} branch={course.branch} image={course.image}>
+                      </Course>
+                        : account.designation === "student" && account.branch === course.branch ? <Course name={course.facultyname} email={course.facultyemail} course={course.coursename} branch={course.branch} image={course.image}> </Course>
                           : <h1></h1>
 
-                      }
-                    </Link>
-                  )
-                })
+                  }
 
-              }
+                </Link>
+              )
 
+            })
 
-            </ol>
+          }
 
-          </div>
-
-          <div className="col-12 col-sm-12 col-lg-10 border border-primary text-center ">
-
-            <div className="row  ml-3 mt-4" >
-              {
-                allCourse.map(course => {
-
-                  return (
-                    <Link to={`/details/${course._id}`} style={{ textDecoration: "none", color: 'inherit' }}>
-                      {
-                        account.designation === "admin" ? <Course name={course.facultyname} email={course.facultyemail} course={course.coursename} branch={course.branch} image={course.image}>
-                        </Course>
-
-                          : account.designation === "faculty" && account.email === course.facultyemail ? <Course name={course.facultyname} email={course.facultyemail} course={course.coursename} branch={course.branch} image={course.image}>
-                          </Course>
-                            : account.designation === "student" && account.branch === course.branch ? <Course name={course.facultyname} email={course.facultyemail} course={course.coursename} branch={course.branch} image={course.image}> </Course>
-                              : <h1></h1>
-
-                      }
-
-                    </Link>
-                  )
-
-                })
-
-              }
-            </div>
-          </div>
         </div>
 
 
 
+
       </div>
-      
+
 
     </>
   )
