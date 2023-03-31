@@ -1,0 +1,15 @@
+/* .card:hover {
+    transform: scale(1.1);
+    background-color: coral;
+  } */
+  /* .card {
+    transition: transform 0.5s;
+} */
+.point:hover {
+    transform: scale(1.1);
+    background-color: coral;
+  }
+
+.point {
+    transition: transform 0.5s;
+}  

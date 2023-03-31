@@ -53,7 +53,7 @@ const Details=()=>{
     return (
         <>
        
-
+<div class="contianer border border-dark" style={{height:"100%"}} >
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -141,7 +141,7 @@ const Details=()=>{
     </Link>
     
 }
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<button type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 
 
@@ -195,7 +195,7 @@ const Details=()=>{
        }
 
        
-
+</div>
      
      
         </>

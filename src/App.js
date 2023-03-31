@@ -16,6 +16,7 @@ import StudentGrade from './Components/student/studentgrade';
 import Profile from './Components/Auth/profile';
 import AllFaculty from './Components/Faculty/AllFaculty';
 import StudentByBranch from './Components/student/studentByBranch';
+import Footer from './Components/Footer/footer'
 
 const PrivateRoute = ({ isAuthenticate, ...props }) => {
   console.log("isAuthenticate : ", isAuthenticate)
@@ -26,6 +27,7 @@ const PrivateRoute = ({ isAuthenticate, ...props }) => {
    
       <Navbar ></Navbar>
       <Outlet />
+      
     </>
     : <Navigate replace to='/login' />
 }

@@ -11,7 +11,7 @@ import StudentGrade from '../student/studentgrade';
 import AllStudent from '../student/allstudent';
 import Banner from '../Admin/getALLCourses/banner.js'
 import '../css/detail.css'
-import '../css/dashboard.css'
+import './dashboard.css'
 import learn from '../../images/learn2.jpg'
 
 const img1 = "https://images.pexels.com/photos/2792043/pexels-photo-2792043.jpeg?cs=srgb&dl=pexels-steshka-willems-2792043.jpg&fm=jpg"
@@ -86,7 +86,8 @@ const AdminDashboard = () => {
   return (
     <>
       {/* <Banner></Banner> */}
-      <nav class="container navbar navbar-expand-lg navbar-light bg-light mt-5">
+      <div class="card">
+      <nav class="container navbar navbar-expand-lg navbar-light bg-light mt-5 ">
         <img src={learn} style={{ width: "200px", height: "50px" }}></img>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -95,7 +96,7 @@ const AdminDashboard = () => {
           <ul class="navbar-nav">
             <li>
               <Link to="/profile">
-                <button type="button" className="btn btn-outline-info btn-lg container" style={style1}>Profile</button>
+                <button type="button" className="btn btn-outline-info btn-lg container " style={style1}>Profile</button>
               </Link>
             </li>
             <li class="nav-item active">
@@ -250,8 +251,8 @@ const AdminDashboard = () => {
       </nav>
 
 
-      <div className="container mb-5">
-        <div className="container row  border border-dark text-center d-flex justify-content-start ">
+      <div className="container mb-5 card">
+        <div className="container row   text-center d-flex justify-content-start ">
 
 
           {
@@ -284,7 +285,7 @@ const AdminDashboard = () => {
 
       </div>
 
-
+      </div>
     </>
   )
 
