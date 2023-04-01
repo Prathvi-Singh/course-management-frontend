@@ -45,7 +45,7 @@ const Addfile=(props)=>{
 
         
         const getImage=async()=>{
-         const URL = "http://localhost:8080/file/upload";
+         const URL = "https://course-management-backend.onrender.com/file/upload";
          const data =new FormData() 
          data.append("file",file);
          data.append("name", file.name);
@@ -117,6 +117,7 @@ return (
                 <div className="modal-header">
               
                   <h4 className="modal-title text-center mb">Add files</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div className="container-fluid" >
                   

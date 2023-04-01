@@ -45,7 +45,7 @@ const Details=()=>{
     const response=await API.deletecourse(id);
        if(response.isSuccess){
         console.log("deleted....");
-           Navigate('/admindashboard');
+           Navigate('/dashboard');
        }
     } 
 

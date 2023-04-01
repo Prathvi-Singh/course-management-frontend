@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { React, useState, useEffect } from 'react';
 import { useNavigate, Link, useParams } from 'react-router-dom'
 import API from '../../services/api';
@@ -22,7 +23,8 @@ const UpdateCourse = () => {
     facultyname: "",
     facultyemail: "",
     coursename: "",
-    branch: ""
+    branch: "",
+    image:"",
   });
 
 
@@ -38,8 +40,9 @@ const UpdateCourse = () => {
         const response =await API.DetailData(id);
 
         if(response.isSuccess){
-          console.log(response.data);
+         
           setData(response.data);
+          console.log("-|-|-",data);
         }
 
 
@@ -64,7 +67,42 @@ const UpdateCourse = () => {
     }
   }
 
+  const [file,setFile]=useState('')
 
+  const fileChange=(e)=>{
+    setFile(e.target.files[0])
+  }
+
+  useEffect(()=>{
+
+        
+    const getImage=async()=>{
+     const URL = "https://course-management-backend.onrender.com/file/upload";
+     const data1 =new FormData() 
+     data1.append("file",file);
+     data1.append("name", file.name);
+     
+     try{
+         let response= await axios.post(URL,data1)
+         if(response.status == 200){
+        //  res=response.data;
+         setData({ ...data, image : response.data  });
+         console.log("----update-->",data);
+        data.image=response.data
+         // console.log("--",data.filename,data.description)
+          
+         }
+        }
+        catch(error){
+         console.log('error..');
+        }
+    } 
+
+    getImage();
+
+
+    
+ },[file]) 
 
 
 
@@ -82,6 +120,7 @@ const UpdateCourse = () => {
           <div className=" col-12 col-sm-12 col-lg-2 ">
 
             <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">UpdateCourse</button>
+           
 
 
             <div id="myModal" className="modal fade" role="dialog">
@@ -91,6 +130,7 @@ const UpdateCourse = () => {
                   <div className="modal-header">
                     {/* <button type="button" ></button> */}
                     <h4 className="modal-title text-center mb">Update Course</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div className="container-fluid" >
                     <form >
@@ -128,6 +168,10 @@ const UpdateCourse = () => {
                           value={data.branch}
                           placeholder="Branch" />
                       </div>
+                      <div className="form-group">
+                           
+                           <input type="file" className="form-control-file" id="exampleFormControlFile1 " onChange={fileChange}/>
+                            </div>
 
                       <button data-dismiss="modal" type="submit" className="btn btn-primary mb-3" onClick={updateCourse}>Update course</button>
                     </form>
