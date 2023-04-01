@@ -3,6 +3,7 @@ import {React,useEffect,useState,useContext} from 'react'
 import { Navigate ,Link} from 'react-router-dom';
 import { DataContext } from '../../context/DataProvider';
 import API from '../../services/api'
+import del from '../../images/del.svg'
 
 
 
@@ -21,9 +22,11 @@ const Addfile=(props)=>{
       
         email: "",
         branch: "",
-        description:"123",
+        description:"",
         filename:"",
         course:"",
+        image_name:"",
+        title:"title"
        
       });
      const [allfiles,setAllFiles]=useState([])
@@ -49,13 +52,18 @@ const Addfile=(props)=>{
          const data =new FormData() 
          data.append("file",file);
          data.append("name", file.name);
+         data.image_name=file.name;
          
          try{
              let response= await axios.post(URL,data)
              if(response.status == 200){
               res=response.data;
-             setData({ ...data, filename : response.data ,email:account.email ,branch : props.index,course:props.course });
-            // data.filename=response.data
+            
+              setData({ ...data, filename : response.data ,email:account.email ,branch : props.index,course:props.course });
+            //  data.filename=response.data
+            //  data.email=account.email
+            //  data.branch=props.index
+            //  data.course=props.course
               console.log("--",data.filename,data.description)
               
              }
@@ -92,6 +100,7 @@ var ok=false;
       console.log(data);
       
      // setData({ ...data, filename : res ,email:account.email ,branch : props.index });
+     console.log("---->",data);
      const response =await API.files(data);
       if(response.isSuccess){
           console.log(response.data);
@@ -122,9 +131,10 @@ return (
                 <div className="container-fluid" >
                   
                   <form >
+ 
                     
                   <div className="form-group">
-                <label for="exampleFormControlFile1">Upload file</label>
+                
                 <input type="file" className="form-control-file" id="exampleFormControlFile1 " onChange={fileChange}/>
                     </div>
             
@@ -163,14 +173,26 @@ placeholder="Name" />
 placeholder="Roll_no" row="3"/>
 </div>
 
+
+
+
+
 </div>
 :<h1></h1>
 
     
 
       }
+                         
+   {/* <div className="form-group">
 
-                
+<input type="text" className="form-control"
+  name="title"
+  onChange={dataChange}
+  value={data.title}
+   placeholder="title" row="3"/>
+</div> 
+                 */}
                     <div className="form-group">
 
                       <textarea type="text" className="form-control"
@@ -179,6 +201,10 @@ placeholder="Roll_no" row="3"/>
                         value={data.description}
                         placeholder="description" row="3"/>
                     </div>
+                   
+                   
+
+         
                     {/* <div className="form-group">
   <label for="exampleFormControlTextarea1">Example textarea</label>
   <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -206,15 +232,24 @@ placeholder="Roll_no" row="3"/>
          
          {/* // <li type="button" className="btn btn-outline-success container"> */}
           
-           <div className="card continer" style={{width:"100%"}}>
+           <div className="card continer point" style={{width:"100%"}}>
   <h5 className="card-header">Assignment </h5>
   <div className="card-body">
-    <h5 className="card-title">Special title treatment</h5>
+    {
+       account.designation==="faculty" ?  <li class="text-right" type="submit" onClick={async()=>{
+        const response =await API.deleteFile(file._id);
+      }}><img src={del}></img></li> : <h1></h1>
+    }
+ 
+    <h5 className="card-title">{file.description}</h5>
     <Link to={file.filename} download={file.filename} style={{textDecoration:"none" ,color:'inherit'}}>
-    <li type="button" className="btn btn-outline-success container" style={{textOverflow: "ellipsis",width:"60%"}} > 👩‍💻👨‍💻✍ </li>
+    <li type="button" className="btn btn-outline-success container" style={{textOverflow: "ellipsis",width:"60%"}} >{file.image_name}  </li>
     </Link>
-    <p className="card-text">{file.descripton}With supporting text below as a natural lead-in to additional content.</p>
-    <button type="button" className="btn btn-primary btn-lg container" data-toggle="modal" data-target="#myModal3" style={{width:"40%",overflow: "auto"}}>Add files in course</button>
+    <p className="card-text">{file.description}</p>
+    {
+       account.designation==="student" ?   <button type="button" className="btn btn-primary btn-lg container" data-toggle="modal" data-target="#myModal3" style={{width:"40%",overflow: "auto"}}>Add files in course</button> : <h1></h1>
+    }
+   
   </div>
 </div>
           

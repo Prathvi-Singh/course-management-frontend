@@ -32,7 +32,7 @@ export const SERVICE_URLS={
     getCourses: {url: 'getcourses',method:'GET',params:true},
     DetailData: {url: 'details',method:'GET',query:true},
     update : {url: 'update',method:'PUT',query:true},
-    deletecourse : {url:'delete',method:'DELETE',query:true},
+    deletecourse : {url:'deletecourse',method:'DELETE',query:true},
     adduser : {url:'adduser',method:'POST'},
     uploadFile : {url:'/upload',method:'POST'},
     files:{url:'/files',method:'POST'},
@@ -41,6 +41,7 @@ export const SERVICE_URLS={
     submitGrades:{url:'/submitgrades',method:'POST',query:true},
     allGrades:{url:'allgrades',method:'GET',query:true},
     allfaculty:{url:'allfaculty',method:'GET'},
+    deleteFile:{url:'fileDelete',method:'DELETE',query:true},
    // allstudents:{url:'allstudents',method:'GET',query:true}
     
 

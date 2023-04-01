@@ -2,6 +2,7 @@ import{ React ,useContext,useEffect } from 'react';
 import {Link} from 'react-router-dom'
 import {DataContext} from '../../context/DataProvider.js'
 import images from '../../images/images.png';
+import logo from '../../images/logo_white.png';
 
 const logoutUser=()=>{
   localStorage.clear();
@@ -16,7 +17,7 @@ const Navbar=()=>{
     return (
       <>
        <nav className="navbar navbar-expand-lg navbar-light bg-light ">
-  <a className="navbar-brand" href="/dashboard"><img src={image1} style={{width:"40px"}}></img><span class="site-name d-none d-md-inline">IIITDM Kurnool</span></a>
+  <a className="navbar-brand" href="/dashboard"><img src={logo} style={{width:"40px"}}></img><span class="site-name d-none d-md-inline">IIITDM Kurnool</span></a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <img src={images} style={{width:"40px"}}/>
   </button> 

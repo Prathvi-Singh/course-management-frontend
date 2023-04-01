@@ -76,11 +76,13 @@ const Details=()=>{
 </div>
       
         {
-            detail===undefined ? <h1> loading </h1> 
+            detail===undefined ? <h1> </h1> 
             : 
             <div >
-               <div className="contaner-fluid bg-dark pt-5 ">
+               <div className="contaner-fluid bg-dark ">
+               <h1 className="text-center text-light"> {detail.branch}</h1>
                <div className="d-flex flex-row justify-content-between" style={{height:"100px"}}>
+              
                <h1 className="text-left text-light" >{ detail.coursename}</h1>
                <div className="column">
                <h1>{ detail.facultyname}</h1>
@@ -93,7 +95,7 @@ const Details=()=>{
               
       
        
-       <h1> {detail.branch}</h1>
+       
        
 
 
@@ -115,7 +117,7 @@ const Details=()=>{
         }
        
 
-       <div classNameName="container-fluid">
+       <div className="container mt-5">
         <div className="row ">
 
           <div className=" col-12 col-sm-12 col-lg-2 ">
@@ -141,17 +143,17 @@ const Details=()=>{
     </Link>
     
 }
-<button type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal">Open Modal</button>
+{/* <button type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal">Open Modal</button> */}
 
 
 
           </div>
 
-          <div className="col-12 col-sm-12 col-lg-10  text-center ">
+          <div className="col-12 col-sm-12 col-lg-10  text-center card">
           {
           detail===undefined  ? <h1>loading</h1>
           :
-          account.designation=="faculty"  || "student" ?  <AddFiles index={detail.branch} course={detail.coursename}></AddFiles>
+          account.designation==="faculty" || "student" ?  <AddFiles index={detail.branch} course={detail.coursename}></AddFiles>
           :
           <h1></h1>
 
