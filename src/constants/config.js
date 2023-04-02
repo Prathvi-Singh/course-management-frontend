@@ -37,7 +37,7 @@ export const SERVICE_URLS={
     uploadFile : {url:'/upload',method:'POST'},
     files:{url:'/files',method:'POST'},
     getallfiles:{url:'allfiles',method:'GET',query:true},
-   getallstudents:{url:'allstudents',method:'GET',query:true},
+    getallstudents:{url:'allstudents',method:'GET',query:true},
     submitGrades:{url:'/submitgrades',method:'POST',query:true},
     allGrades:{url:'allgrades',method:'GET',query:true},
     allfaculty:{url:'allfaculty',method:'GET'},

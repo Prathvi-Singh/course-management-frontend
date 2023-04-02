@@ -7,7 +7,7 @@ const Profile =()=>{
    return (
  <>
  
- <h1> hello , this your profile</h1>
+ <h1> Hi, I am {account.name}</h1>
  <div className="container mt-5">
     
     <div className="row d-flex justify-content-center">

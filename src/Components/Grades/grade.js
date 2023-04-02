@@ -6,7 +6,12 @@ import '../css/grade.css'
 
 const Grade=()=>{
     const {branch} = useParams();
-    
+    console.log(branch);
+    var b=branch.split("Y");
+    var branch1=b[0];
+    var course=b[1]; 
+  
+    console.log(branch1,"=====",course);
     const [data,setData]=useState([]);
     const [grades,setGrades]=useState([]);
     const [grade,setGrade]=useState({});
@@ -15,7 +20,7 @@ const Grade=()=>{
       
 
        const allstudents=async()=>{
-           const response = await API.getallstudents(branch);
+           const response = await API.getallstudents(branch1);
            if(response.isSuccess){
             const students=response.data;
             setData(students);
@@ -84,7 +89,7 @@ const Grade=()=>{
       {/* <td>{value.name}</td> */}
       <td>{value.email}</td>
       <td>  <input type="text" placeholder="addgrades" onChange={(e)=>{
-            setGrade({name:value.name , email:value.email ,grade:e.target.value,branch:branch});
+            setGrade({name:value.name , email:value.email ,grade:e.target.value,branch:branch1,course:course});
             console.log(grade);
         }}></input>
         </td>

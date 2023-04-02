@@ -3,8 +3,8 @@ import { React, useState, useEffect } from 'react';
 import { useNavigate, Link, useParams } from 'react-router-dom'
 import API from '../../services/api';
 import { branches } from '../Data/branch.js'
-import Course from '../Admin/getALLCourses/course.js'
-import AddCourse from '../Admin/getALLCourses/addCourse'
+import Course from '../getALLCourses/course.js'
+import AddCourse from '../getALLCourses/addCourse'
 
 const style1 = {
   width: "100%",

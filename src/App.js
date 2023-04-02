@@ -11,13 +11,13 @@ import Details from './Components/Details/Details.js'
 import UpdateCourse from './Components/update/update';
 import DataProvider from './context/DataProvider';
 import { DataContext } from './context/DataProvider';
-import Grade from './Components/Faculty/grade.js'
-import StudentGrade from './Components/student/studentgrade';
+import Grade from './Components/Grades/grade.js'
+import StudentGrade from './Components/Grades/studentgrade';
 import Profile from './Components/Auth/profile';
 import AllFaculty from './Components/Faculty/AllFaculty';
 import StudentByBranch from './Components/student/studentByBranch';
 import Footer from './Components/Footer/footer'
-import Submission from './Components/Faculty/submission'
+import Submission from './Components/Submission/submission'
 
 const PrivateRoute = ({ isAuthenticate, ...props }) => {
   console.log("isAuthenticate : ", isAuthenticate)

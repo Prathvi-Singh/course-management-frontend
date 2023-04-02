@@ -2,14 +2,14 @@ import { React, useState, useEffect, useContext } from 'react';
 import { useNavigate, Link, useSearchParams, useLocation } from 'react-router-dom'
 import API from '../../services/api';
 import { branches } from '../Data/branch.js'
-import Course from '../Admin/getALLCourses/course.js'
-import AddCourse from '../Admin/getALLCourses/addCourse'
+import Course from '../getALLCourses/course.js'
+import AddCourse from '../getALLCourses/addCourse'
 import { DataContext } from '../../context/DataProvider';
-import Add from '../Admin/adduser/add'
-import StudentGrade from '../student/studentgrade';
+import Add from '../adduser/add'
+import StudentGrade from '../Grades/studentgrade';
 import axios from 'axios';
 import AllStudent from '../student/allstudent';
-import Banner from '../Admin/getALLCourses/banner.js'
+import Banner from '../getALLCourses/banner.js'
 import '../css/detail.css'
 import './dashboard.css'
 import learn from '../../images/learn2.jpg'
@@ -58,8 +58,11 @@ const AdminDashboard = () => {
     //   alert("Please fill all the fields");
     //   return;
     // }
+     
+    
 
     const response = await API.addCourse(data);
+    console.log("-----",response)
     if (response.isSuccess) {
 
       console.log(response.data)
@@ -69,6 +72,16 @@ const AdminDashboard = () => {
       console.log('successfully added');
 
     }
+    // else if(response.code===401){
+    //   console.log("---bahut error ");
+    //   alert(" faculty email is not valid ");
+    // }
+    // else if(response.code===403){
+    //   alert("please fill all the fields");
+    // }
+    // else{
+    //   alert("faculty email is not valid or please fill all the fields ")
+    // }
   }
 
 
@@ -166,40 +179,40 @@ const AdminDashboard = () => {
 
               </li>
               <li class="nav-item">
-               {
-                 account.designation != "student" ?
-                 <div className="dropdown">
-                  <button className="btn btn-secondary dropdown-toggle btn btn-outline-info btn-lg container" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select Course
-                  </button>
-                  <button className="dropdown-menu  container" aria-labelledby="dropdownMenuButton" style={{ width: "100%" }}>
-                    <div class="column">
-                      {
+                {
+                  account.designation != "student" ?
+                    <div className="dropdown">
+                      <button className="btn btn-secondary dropdown-toggle btn btn-outline-info btn-lg container" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select Course
+                      </button>
+                      <button className="dropdown-menu  container" aria-labelledby="dropdownMenuButton" style={{ width: "100%" }}>
+                        <div class="column">
+                          {
 
-                        branches.map(b => {
-                          return (
-                            //  <Link to={`/dashboard/?branch=${b.branch}`} style={{ textDecoration: "none", color: 'inherit' }}>
-                            <div>
-                              {
-                                account.designation != "student" ?
+                            branches.map(b => {
+                              return (
+                                //  <Link to={`/dashboard/?branch=${b.branch}`} style={{ textDecoration: "none", color: 'inherit' }}>
+                                <div>
+                                  {
+                                    account.designation != "student" ?
 
-                                  <Link to={`/dashboard/?branch=${b.branch}`} type="button" className="btn btn-outline-success container" style={style1}>  {b.branch} </Link>
+                                      <Link to={`/dashboard/?branch=${b.branch}`} type="button" className="btn btn-outline-success container" style={style1}>  {b.branch} </Link>
 
-                                  : <h1></h1>
+                                      : <h1></h1>
 
-                              }
-                              {/* </Link> */}
-                            </div>
-                          )
-                        })
-                      }
+                                  }
+                                  {/* </Link> */}
+                                </div>
+                              )
+                            })
+                          }
+
+                        </div>
+
+                      </button>
 
                     </div>
-
-                  </button>
-
-                </div>
-                :<h1></h1>
+                    : <h1></h1>
                 }
 
               </li>
@@ -209,9 +222,6 @@ const AdminDashboard = () => {
 
                   account.designation == "admin" ? <div style={style1}>
                     <Add style={style1}></Add>
-
-
-
                   </div>
 
                     :

@@ -1,6 +1,7 @@
 import {React,useState} from 'react'
 import { Navigate } from 'react-router-dom';
-import API from '../../../services/api'
+import API from '../../services/api'
+
 const style1 = {
   width: "100%",
   // textDecoration:"none",

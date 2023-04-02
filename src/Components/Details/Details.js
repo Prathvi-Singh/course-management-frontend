@@ -2,9 +2,9 @@ import{ React ,useState,useEffect,useContext} from 'react';
 import {Link, useNavigate, useParams } from 'react-router-dom';
 import API from '../../services/api';
 import { DataContext } from '../../context/DataProvider';
-import AddFiles from '../Faculty/addfiles.js'
-import Grade from '../Faculty/grade.js'
-import StudentGrade from '../student/studentgrade';
+import AddFiles from '../files/addfiles.js'
+import Grade from '../Grades/grade.js'
+import StudentGrade from '../Grades/studentgrade';
 import '../css/detail.css'
 import edit from '../../images/edit.svg'
 import del   from '../../images/del.svg'
@@ -125,7 +125,7 @@ const Details=()=>{
           {
           detail===undefined ? <h1></h1>
           :
-          <Link to={  `/grade/${detail.branch }`}>
+          <Link to={`/grade/${`${detail.branch}Y${detail.coursename}`}`}>
 
         {
            account.designation==="faculty" ?
