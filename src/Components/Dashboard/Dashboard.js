@@ -166,7 +166,9 @@ const AdminDashboard = () => {
 
               </li>
               <li class="nav-item">
-                <div className="dropdown">
+               {
+                 account.designation != "student" ?
+                 <div className="dropdown">
                   <button className="btn btn-secondary dropdown-toggle btn btn-outline-info btn-lg container" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select Course
                   </button>
@@ -197,6 +199,8 @@ const AdminDashboard = () => {
                   </button>
 
                 </div>
+                :<h1></h1>
+                }
 
               </li>
 

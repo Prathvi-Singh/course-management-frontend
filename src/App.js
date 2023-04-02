@@ -17,6 +17,7 @@ import Profile from './Components/Auth/profile';
 import AllFaculty from './Components/Faculty/AllFaculty';
 import StudentByBranch from './Components/student/studentByBranch';
 import Footer from './Components/Footer/footer'
+import Submission from './Components/Faculty/submission'
 
 const PrivateRoute = ({ isAuthenticate, ...props }) => {
   console.log("isAuthenticate : ", isAuthenticate)
@@ -111,6 +112,10 @@ function App() {
 
 <Route path='/allstudents/:branch' element={<StudentByBranch/>} />
  </Route> 
+
+ <Route path='/submission/:id' element={<PrivateRoute isAuthenticate={isAuthenticate}></PrivateRoute>}>
+     <Route path='/submission/:id' element={<Submission/>} />
+ </Route>
 
        
 

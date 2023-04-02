@@ -42,6 +42,7 @@ export const SERVICE_URLS={
     allGrades:{url:'allgrades',method:'GET',query:true},
     allfaculty:{url:'allfaculty',method:'GET'},
     deleteFile:{url:'fileDelete',method:'DELETE',query:true},
+    submission:{url:'submission',method:'GET',query:true},
    // allstudents:{url:'allstudents',method:'GET',query:true}
     
 

@@ -153,14 +153,11 @@ const Details=()=>{
           {
           detail===undefined  ? <h1>loading</h1>
           :
-          account.designation==="faculty" || "student" ?  <AddFiles index={detail.branch} course={detail.coursename}></AddFiles>
+          account.designation==="faculty" || "student" ?  <AddFiles index={detail.branch} course={detail.coursename} _id={detail._id}></AddFiles>
           :
           <h1></h1>
 
-       }
-
-
-            
+       }  
           </div>
         </div>
 
