@@ -223,7 +223,7 @@ const Addfile = (props) => {
                   return (
                     <div>
                       <div className="card continer point" style={{ width: "100%" }}>
-                        <h5 className="card-header">Assignment </h5>
+                        <h5 className="card-header">{file.title} </h5>
                         <div className="card-body">
                           {
                             account.designation === "faculty" ? <li class="text-right" type="submit" onClick={async () => {
