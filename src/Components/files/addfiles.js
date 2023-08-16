@@ -235,7 +235,7 @@ const Addfile = (props) => {
                           <Link to={file.filename} download={file.filename} style={{ textDecoration: "none", color: 'inherit' }}>
                             <li type="button" className="btn btn-outline-success container" style={{ textOverflow: "ellipsis", width: "60%" }} >{file.image_name}  </li>
                           </Link>
-                          <p className="card-text">{file.description}</p>
+                          {/* <p className="card-text">{file.description}</p> */}
                           {
                           
                           account.designation === "student" ? <button type="button" className="btn btn-primary btn-lg container" data-toggle="modal" data-target="#myModal3" style={{ width: "40%", overflow: "auto" }} onClick={()=>{

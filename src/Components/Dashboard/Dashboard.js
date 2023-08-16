@@ -58,9 +58,6 @@ const AdminDashboard = () => {
     //   alert("Please fill all the fields");
     //   return;
     // }
-     
-    
-
     const response = await API.addCourse(data);
     console.log("-----",response)
     if (response.isSuccess) {
