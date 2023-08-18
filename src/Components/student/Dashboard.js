@@ -2,9 +2,7 @@ import axios from 'axios';
 import {React,useEffect,useState} from 'react';
 import API from '../../services/api'
 
-// var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-// var yValues = [55, 49, 44, 24, 15];
-// var barColors = ["red", "green","blue","orange","brown"];
+
 
 
 const Dashboard = (req,res)=>{

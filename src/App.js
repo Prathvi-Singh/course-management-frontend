@@ -1,10 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
 import {React,useState,useContext} from 'react'
 
 import Navbar from './Components/Navbar/Navbar.js'
 import Login from './Components/Auth/login.js'
-import Signup from './Components/Auth/signup.js'
+
 import Dashboard from './Components/Dashboard/Dashboard.js';
 import {BrowserRouter , Routes ,Route,Outlet,Navigate } from 'react-router-dom'
 import Details from './Components/Details/Details.js'

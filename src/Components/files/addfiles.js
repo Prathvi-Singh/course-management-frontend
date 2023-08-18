@@ -233,16 +233,16 @@ const Addfile = (props) => {
 
                           <h5 className="card-title">{file.description}</h5>
                           <Link to={file.filename} download={file.filename} style={{ textDecoration: "none", color: 'inherit' }}>
-                            <li type="button" className="btn btn-outline-success container" style={{ textOverflow: "ellipsis", width: "60%" }} >{file.image_name}  </li>
+                            <li type="button" className="btn btn-outline-success container" style={{ textOverflow: "ellipsis", width: "40%",marginRight:"20px" }} >{file.image_name}  </li>
                           </Link>
                           {/* <p className="card-text">{file.description}</p> */}
                           {
                           
-                          account.designation === "student" ? <button type="button" className="btn btn-primary btn-lg container" data-toggle="modal" data-target="#myModal3" style={{ width: "40%", overflow: "auto" }} onClick={()=>{
+                          account.designation === "student" ? <button type="button" className="btn btn-primary btn-lg container" data-toggle="modal" data-target="#myModal3" style={{ width: "30%", overflow: "auto" }} onClick={()=>{
                            console.log("hello i am in add file")
                             data.id=file._id;
                            
-                          }}>Add files in course</button> : <h1></h1>
+                          }}>Add files </button> : <h1></h1>
                           }
                           
                           {
