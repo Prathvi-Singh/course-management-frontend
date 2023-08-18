@@ -86,7 +86,7 @@ const Addfile = (props) => {
 
 
     const getAllfiles = async (req, res) => {
-      const response = await API.getallfiles(props.course);
+      const response = await API.getallfiles({course:props.course ,email:props.email});
       if (response.isSuccess) {
         console.log(response.data);
         setAllFiles(response.data);
@@ -243,8 +243,6 @@ const Addfile = (props) => {
                             data.id=file._id;
                            
                           }}>Add files in course</button> : <h1></h1>
-                           
-                    
                           }
                           
                           {

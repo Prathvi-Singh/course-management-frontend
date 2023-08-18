@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_NOTIFICATION_MESSAGES ,SERVICE_URLS } from '../constants/config';
 import { getType } from '../Components/utilis/common-auth.js';
 
-//const APL_URL = "http://localhost:8080";
+// const APL_URL = "http://localhost:8080";
 
 
 const APL_URL = "https://course-management-backend.onrender.com";
