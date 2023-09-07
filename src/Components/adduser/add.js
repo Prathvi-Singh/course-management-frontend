@@ -113,7 +113,7 @@ return (
                       </div>
                       <div className="form-group">
 
-                      <input type="Number" className="form-control"
+                      <input type="String" className="form-control"
                           name="contact"
                           onChange={dataChange}
                           value={data.contact}
