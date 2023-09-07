@@ -24,7 +24,7 @@ const Addfile = (props) => {
     course: "",
     image_name: "",
     title: "",
-    id:"",
+    id: "",
 
   });
   const [allfiles, setAllFiles] = useState([])
@@ -58,7 +58,7 @@ const Addfile = (props) => {
           res = response.data;
 
           setData({ ...data, filename: response.data, email: account.email, branch: props.index, course: props.course });
-          
+
           // if(account.designation==="student") {
           //   console.log("you are student",props._id);
           //   data.id=props._id;
@@ -86,7 +86,7 @@ const Addfile = (props) => {
 
 
     const getAllfiles = async (req, res) => {
-      const response = await API.getallfiles({course:props.course ,email:props.email});
+      const response = await API.getallfiles({ course: props.course, email: props.email });
       if (response.isSuccess) {
         console.log(response.data);
         setAllFiles(response.data);
@@ -103,7 +103,7 @@ const Addfile = (props) => {
 
     // setData({ ...data, filename : res ,email:account.email ,branch : props.index });
     console.log("---->", data);
-   
+
     const response = await API.files(data);
     if (response.isSuccess) {
       console.log(response.data);
@@ -122,11 +122,11 @@ const Addfile = (props) => {
           account.designation === "faculty" || "student" ?
             <div>
               {
- account.designation === "faculty" ?
-              <button type="button" className="btn btn-info btn-lg container" data-toggle="modal" data-target="#myModal3" style={style1}>Add files in course</button>
-            :
-            <h1></h1>
-            }
+                account.designation === "faculty" ?
+                  <button type="button" className="btn btn-info btn-lg container" data-toggle="modal" data-target="#myModal3" style={style1}>Add files in course</button>
+                  :
+                  <h1></h1>
+              }
 
               <div id="myModal3" className="modal fade" role="dialog">
                 <div className="modal-dialog">
@@ -139,14 +139,14 @@ const Addfile = (props) => {
                     </div>
                     <div className="container-fluid" >
 
-                    <div className="form-group">
+                      <div className="form-group">
 
-<input type="text" className="form-control"
-  name="title"
-  onChange={dataChange}
-  value={data.title}
-  placeholder="title" row="3" />
-</div>
+                        <input type="text" className="form-control"
+                          name="title"
+                          onChange={dataChange}
+                          value={data.title}
+                          placeholder="title" row="3" />
+                      </div>
 
                       <form >
 
@@ -233,22 +233,22 @@ const Addfile = (props) => {
 
                           <h5 className="card-title">{file.description}</h5>
                           <Link to={file.filename} download={file.filename} style={{ textDecoration: "none", color: 'inherit' }}>
-                            <li type="button" className="btn btn-outline-success container" style={{ textOverflow: "ellipsis", width: "40%",marginRight:"20px" }} >{file.image_name}  </li>
+                            <li type="button" className="btn btn-outline-success container" style={{ textOverflow: "ellipsis", width: "40%", marginRight: "20px" }} >{file.image_name}  </li>
                           </Link>
                           {/* <p className="card-text">{file.description}</p> */}
                           {
-                          
-                          account.designation === "student" ? <button type="button" className="btn btn-primary btn-lg container" data-toggle="modal" data-target="#myModal3" style={{ width: "30%", overflow: "auto" }} onClick={()=>{
-                           console.log("hello i am in add file")
-                            data.id=file._id;
-                           
-                          }}>Add files </button> : <h1></h1>
+
+                            account.designation === "student" ? <button type="button" className="btn btn-primary btn-lg container" data-toggle="modal" data-target="#myModal3" style={{ width: "30%", overflow: "auto" }} onClick={() => {
+                              console.log("hello i am in add file")
+                              data.id = file._id;
+
+                            }}>Add files </button> : <h1></h1>
                           }
-                          
+
                           {
-                               account.designation === "faculty" ?    <Link to={`/submission/${file._id}`} download={file.filename} style={{ textDecoration: "none", color: 'inherit' }}>
-                               <li type="button" className="btn btn-outline-success container" style={{ textOverflow: "ellipsis", width: "60%" }} >Submission  </li>
-                             </Link> :<h1></h1>
+                            account.designation === "faculty" ? <Link to={`/submission/${file._id}`} download={file.filename} style={{ textDecoration: "none", color: 'inherit' }}>
+                              <li type="button" className="btn btn-outline-success container" style={{ textOverflow: "ellipsis", width: "60%" }} >Submission  </li>
+                            </Link> : <h1></h1>
 
                           }
 
