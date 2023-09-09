@@ -11,6 +11,7 @@ const Add=()=>{
 
     const [data, setData] = useState({
         name: "",
+        rollno:"",
         email: "",
         designation:"",
         contact:"",
@@ -90,6 +91,14 @@ return (
                           onChange={dataChange}
                           value={data.name}
                           placeholder="Name" />
+                      </div>
+                      
+                      <div className="form-group" >
+                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                          name="rollno"
+                          onChange={dataChange}
+                          value={data.rollno}
+                          placeholder="rollno" />
                       </div>
 
 

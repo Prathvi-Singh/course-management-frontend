@@ -15,7 +15,7 @@ console.log("image",props.image);
   <div className="card-body">
     <h5 className="card-title">{props.course}</h5>
     <h2 className="card-text">{props.name}</h2>
-    <h2 className="card-text">{props.email}</h2>
+    {/* <h2 className="card-text">{props.email}</h2> */}
 
      <h2 className="card-text">{props.branch}</h2>
      <a href="#" className="btn btn-primary">want to view</a>
