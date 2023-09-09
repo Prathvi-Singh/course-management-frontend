@@ -4,7 +4,6 @@ import API from '../../services/api'
 
 const style1 = {
   width: "100%",
-  // textDecoration:"none",
   wordWrap: "break-word",
   overFlow: " hidden"
 }
