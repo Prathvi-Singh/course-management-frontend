@@ -31,7 +31,7 @@ const Submission = ()=>{
        <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Sr No</th>
+   
      
       <th scope="col">Email</th>
       <th scope="col">title</th>
@@ -44,7 +44,7 @@ const Submission = ()=>{
          data.map(sub=>{
             return(
                 <tr>
-                <th scope="row">{count+1}</th>
+               
                 <td>{sub.email}</td>
                 <td>{sub.title}</td>
                <td> <Link to={sub.filename}>{sub.image_name}</Link></td> 
