@@ -60,7 +60,7 @@ const Grade=()=>{
   <thead>
     <tr>
      
-      <th scope="col">Name</th>
+      <th scope="col">Rollno</th>
       <th scope="col">Email</th>
       <th scope="col">Enter Grade</th>
       <th scope="col">SAVE </th>
@@ -85,11 +85,11 @@ const Grade=()=>{
         
 
     <tr>
-      <th scope="row">{value.name}</th>
+      <th scope="row">{value.rollno}</th>
       {/* <td>{value.name}</td> */}
       <td>{value.email}</td>
       <td>  <input type="text" placeholder="addgrades" onChange={(e)=>{
-            setGrade({name:value.name , email:value.email ,grade:e.target.value,branch:branch1,course:course});
+            setGrade({name:value.name ,rollno:value.rollno, email:value.email ,grade:e.target.value,branch:branch1,course:course});
             console.log(grade);
         }}></input>
         </td>
