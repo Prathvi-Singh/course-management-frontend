@@ -4,6 +4,7 @@ import { Navigate, Link } from 'react-router-dom';
 import { DataContext } from '../../context/DataProvider';
 import API from '../../services/api'
 import del from '../../images/del.svg'
+import './addfile.css'
 
 const style1 = {
   width: "100%",
@@ -228,7 +229,7 @@ const Addfile = (props) => {
                           {
                             account.designation === "faculty" ? <li class="text-right" type="submit" onClick={async () => {
                               const response = await API.deleteFile(file._id);
-                            }}><img src={del}></img></li> : <h1></h1>
+                            }}><img src={del} className="del" ></img></li> : <h1></h1>
                           }
 
                           <h5 className="card-title">{file.description}</h5>
