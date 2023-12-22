@@ -112,6 +112,7 @@ const AdminDashboard = () => {
 
     const getImage = async () => {
       const URL = "https://course-management-backend.onrender.com/file/upload";
+      // const URL = "http://localhost:8080/file/upload";
       const data1 = new FormData()
       data1.append("file", file);
       data1.append("name", file.name);

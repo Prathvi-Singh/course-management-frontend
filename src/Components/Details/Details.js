@@ -33,10 +33,7 @@ const Details=()=>{
 
 
         }
-
         CourseInDetail();
-
-
     },[])
 
  
@@ -81,12 +78,12 @@ const Details=()=>{
             <div >
                <div className="contaner-fluid bg-dark ">
                <h1 className="text-center text-light"> {detail.branch}</h1>
-               <div className="d-flex flex-row justify-content-between" style={{height:"100px"}}>
+               <div className="d-flex flex-row justify-content-between" style={{height:"100%"}}>
               
                <h1 className="text-left text-light" >{ detail.coursename}</h1>
                <div className="column">
-               <h1>{ detail.facultyname}</h1>
-               <h7 className="text-right text-light" >By { detail.facultyemail}</h7>
+               <h1 className="text-left text-light">{ detail.facultyname}</h1>
+               <h7 className="text-right text-light" >{ detail.facultyemail}</h7>
                </div>
                </div>
                 

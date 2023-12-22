@@ -6,6 +6,7 @@ import API from '../../services/api'
 import del from '../../images/del.svg'
 import './addfile.css'
 
+
 const style1 = {
   width: "100%",
   wordWrap: "break-word",
@@ -48,6 +49,7 @@ const Addfile = (props) => {
 
     const getImage = async () => {
       const URL = "https://course-management-backend.onrender.com/file/upload";
+      // const URL = "http://localhost:8080/file/upload";
       const data1 = new FormData()
       data1.append("file", file);
       data1.append("name", file.name);
